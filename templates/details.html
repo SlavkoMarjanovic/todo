@@ -1,0 +1,12 @@
+{% include 'snipets/header.html'%}
+<a href="/todos/">Go back</a>
+<br>
+<h1>{{todo.title}}</h1>
+<br>
+<p>
+    {{todo.text}}
+</p>
+<p>
+    Created at: {{todo.created_at}}
+</p>
+{% include 'snipets/footer.html'%}

@@ -1,0 +1,14 @@
+{% include 'snipets/header.html'%}
+<form action="{% url 'add' %}" method="post">
+    {% csrf_token %}
+    <label for="title" >Title</label>
+    <br><br>
+
+    <input type="title" name="title" id="title" placeholder="Ukucati naslov"/>
+    <br><br>
+    <textarea name="text" id="text"></textarea>
+    <input type="submit" value="Submit" />
+</form>
+<br>
+<a href="/">Go back</a>
+{% include 'snipets/footer.html'%}
