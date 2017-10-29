@@ -20,6 +20,4 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^todos/', include('todos.urls')),
-    url(r'^$', include('todos.urls')),
-
 ]

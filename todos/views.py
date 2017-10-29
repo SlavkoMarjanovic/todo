@@ -1,6 +1,10 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.views.generic import TemplateView, ListView
 from .models import Todo
+from  .serializers import TodoSerializers
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 # Create your views here.
 
 def index(request):
@@ -24,3 +28,11 @@ def add(request):
         return redirect('/todos')
     else:
         return render(request, 'add.html')
+class TodoList(APIView):
+    def get(self,request):
+        todo1 = Todo.objects.all()
+        serializer = TodoSerializers(todo1, many=True)
+        return Response(serializer.data)
+
+    def post(self):
+        pass
